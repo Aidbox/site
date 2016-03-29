@@ -3,6 +3,7 @@
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :source-paths  ["src" "vendor/esthatic/src"]
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [markdown-clj "0.9.82"]
                  [hiccup "1.0.5"]
