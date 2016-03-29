@@ -5,10 +5,8 @@
   [:div#navigation
    [:$style
     [:#navigation
-     {:position "relative"
-      :$margin [1 0]}
-     [:a.brand 
-      {:text-transform "uppercase"}]
+     {:position "relative" :$margin [1 0]}
+     [:a.brand {:text-transform "uppercase"}]
      [:ul {:margin-bottom 0 :float "right"}
       [:li [:a {:text-transform "uppercase"
                 :$padding 1}]]]]]
@@ -40,10 +38,11 @@
       [:h1 {:font-weight 300 :margin-bottom "1em"}]
       [:p {:color "#555"
            :$text [1 2]}]]
-     [:.box {:padding [2 0]
+     [:.box {:$padding [2 0]
              :background-color "#f1f1f1"}
-      [:h3 {:text-transform "uppercase" :font-size "30px" :font-weight "normal" :line-height "3em"}]
-      [:p {:line-height "2em" :font-size "1.2em"}]
+      [:h3 {:text-transform "uppercase"
+            :$text [1.5 3 "normal"]}]
+      [:p {:$text [1.2 2 "normal"]}]
       [:.img {:width "100%"}]
       [:.clr {:clear "both"}]]]]
 
