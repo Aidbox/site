@@ -1,0 +1,8 @@
+title: "[a]idbox"
+moto:
+  header: "Aidbox"
+  subheader: "Generic FHIR Backend for your next healthcare app"
+  text: >-
+    Aidbox is cloud service, which ouptionaly could be deployed to your private cloud,
+    can securely store your structured healthcare data in standard format (FHIR),
+    give you access to data by REST API, WebSockets, SQL and provide you with SDK

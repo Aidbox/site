@@ -1,0 +1,61 @@
+- id: facade
+  img: https://s-media-cache-ak0.pinimg.com/564x/5c/71/01/5c71013623eeda55eb386d91dce2f8e2.jpg
+  # img: /imgs/aidbox_facade_360.png
+  title: Aidbox as your API Facade
+  text: >
+    could be connected
+    to existing systems (EHR, EMR, LIS, RiS etc)
+    and provides standard FHIR REST & WebSocket API
+    for development and hosting of portable Single Page
+    and Smart on FHIR Applications in web browsers and
+    on mobile devices.
+
+- id: backend
+  title: Aidbox as your Backend 
+  # img: /imgs/aidbox_backend.png
+  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/docs-anywhere-vflA67DXc.png
+  text: >
+    can dramaticaly decrease "time to market" for your new health IT products
+    by providing "out of the box" backbone features
+
+    * FHIR Information Model and REST API
+
+    * Flexible database
+
+    * Security & Workflow
+    
+    * Integrations
+
+    * Automated Infrastructure
+
+    * SDK's and project examples
+
+- id: repo
+  # img: /imgs/aidbox_repository.png
+  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/work-on-slides-together-vfligazGL.png
+  title: Aidbox as your Clinical Data Repository 
+  text: >
+    Aidbox could be used as Clinical Data Repository for analysis and desicion support systems,
+    aggregating & normalizing data from different sources to Unified Data Information Model (FHIR).
+    and providing powerful tools to work with data like PostgreSQL,
+    Elastic Search Indexes, timeseries OLAP (druid.io). We are working on adding more data analysis tools 
+    into the boxes.
+
+- id: ibus
+  # img: /imgs/aidbox_bus.png
+  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/work-on-slides-together-vfligazGL.png
+  title: Aidbox as Integration Bus
+  text: >
+    Aidbox provides connectors for different protocols (HL7v2, CDA/CCD, FHIR, custom), supports REST, Messaging and Publish/Subscribe end points
+    and can be used as a integration bus to help systems communicate to each other.
+
+- id: micro
+  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/send-videos-quickly-vflhWvqHj.png
+  title: Aidbox and Micro-Services
+  text: >
+    Aidbox is frendly for micro-service architecture.
+    Every box could operate as independent service with isolated resources.
+    Boxes creation and terminatoin and other operations could be automated by REST API and SDK.
+
+
+
