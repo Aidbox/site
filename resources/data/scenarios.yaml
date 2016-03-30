@@ -1,6 +1,5 @@
 - id: facade
-  img: https://s-media-cache-ak0.pinimg.com/564x/5c/71/01/5c71013623eeda55eb386d91dce2f8e2.jpg
-  # img: /imgs/aidbox_facade_360.png
+  img: /imgs/aidbox_facade.png
   title: Aidbox as your API Facade
   text: >
     could be connected

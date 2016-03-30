@@ -1,17 +1,18 @@
 (ns site.core
-  (:require [esthatic.core :as es]))
+  (:require [esthatic.core :as es]
+            [dali.io :as dali]))
 
 (defn navigation [{data :data :as opts}]
   [:div#navigation
    [:$style
     [:#navigation
-     {:position "relative" :$margin [1 0]}
+     {:position "relative" :$margin [1.5 0]}
      [:a.brand {:text-transform "uppercase"}]
      [:ul {:margin-bottom 0 :float "right"}
       [:li [:a {:text-transform "uppercase"
                 :$padding 1}]]]]]
    [:div.container
-    [:a.brand {:href "index"} "[a]idbox"]
+    [:a.brand {:href "index"} (get-in data [:text :title])]
     [:ul.list-inline
      (for [x (data :menu)]
        [:li [:a {:href (:href x)} (:title x)]])]]])
@@ -28,38 +29,15 @@
     (navigation opts)
     cnt]])
 
-
-(defn index [{data :data :as opts}]
+(defn features [{data :data :as opts}]
   [:div#index
    [:$style
     [:#index
-     [:.moto
-      {:$padding [4 0]}
-      [:h1 {:font-weight 300 :margin-bottom "1em"}]
-      [:p {:color "#555"
-           :$text [1 2]}]]
-     [:.box {:$padding [2 0]
-             :background-color "#f1f1f1"}
-      [:h3 {:text-transform "uppercase"
-            :$text [1.5 3 "normal"]}]
-      [:p {:$text [1.2 2 "normal"]}]
-      [:.img {:width "100%"}]
-      [:.clr {:clear "both"}]]]]
-
-   [:div.moto
-    [:div.container
-     [:div.col-md-8
-      [:h1 (get-in data [:text :moto :subheader])]
-      [:p  (get-in data [:text :moto :text])]
-      [:br]
-      [:button.btn.btn-lg.btn-success "Try in Our Cloud"]
-      " "
-      [:button.btn.btn-lg.btn-primary "Enterprise Version"]]
-     [:div.col-md-4
-      [:img {:style "width: 100%"
-             :src "http://thumbs.dreamstime.com/z/bright-simple-graphic-illustration-trendy-flat-style-colors-sliding-door-wardrobe-use-design-vector-51410228.jpg"}]]]]
-
-   (for [feat (get-in data [:features])]
+     [:.box {:$padding 0}
+      [:h3 {:$text [1.5 2 :normal :uppercase]}]
+      [:p {:$text [1.2 2 200]
+           :$color :text-muted}]]]]
+   (for [feat (get-in data [:feature])]
      [:div.box
       [:div.container
        [:div.row
@@ -68,8 +46,77 @@
          [:p [:$md  (:text feat)]]]
         [:.col-md-4 [:img.img {:src (:img feat)}]]]]])])
 
+(defn draw []
+  [:div
+   [:$style
+    [:rect {:fill "#f1f1f1"}]]
+   [:svg.logo {:width 120 :height 120 :viewBox "0 0 120 120"}
+    [:rect {:x 10 :y 10 :width 100 :height 100 :rx 12 :ry 15}]]])
+
+(defn moto [{data :data :as opts}]
+  [:div#moto
+   [:$style
+    [:#moto
+     {:$padding [4 0]}
+     [:h1 {:$text [3 4 100] :$push-bottom 1}]
+     [:.moto {:$padding [10 0]}]
+     [:.moto-btn {:$color [:text-yellow :btn-gray]
+                  :$push-top 10
+                  :vertical-align "baselin"
+                  :font-family "'Gotham', Arial, sans-serif"
+                  :$text [1 1.5 :uppercase :baseline]
+                  :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
+                  :border-radius 0
+                  :$padding [1 4]}]
+     [:.banner {:background "url(/imgs/bg_banner.png)"
+                :$height 30}]
+     [:p {:color "#555" :$text [1.3 2 100]}]]]
+   [:div.container
+    [:div.row.moto
+     [:center
+      [:h1 (get-in data [:text :moto :subheader])]
+      [:p  (get-in data [:text :moto :text])]]]]
+   [:div.banner
+    [:center
+     [:button.btn.moto-btn "Try in Our Cloud"]]]])
+
+(defn scenario [{data :data :as opts}]
+  [:div#scenario
+   [:$style
+    [:#index
+     [:.enterprise {:text-align "center"
+                    :background-color "#f2f3f7"
+                    :$padding [1 0]}]
+     [:.box {:$padding [2 0 3]}
+      [:h3 {:$text [1.5 3 :normal :uppercase]}]
+      [:p {:$text [1.2 2 200]
+           :$color :text-muted}]
+      [:.img {:width "70%" :display "block"
+              :margin-left "auto"
+              :margin-right "auto"
+              :$push-top 4}]]]]
+   [:div.enterprise
+    [:div.container
+     [:h3 "Check out enterprise version of aidbox"]]]
+
+   (for [[idx feat] (map-indexed (fn [x y] [x y]) (get-in data [:scenarios]))]
+     [:div.box
+      [:div.container
+       (let [txt [:.col-md-6 [:h3 (:title feat)]
+                  [:p [:$md  (:text feat)]]]
+             img [:.col-md-6 [:img.img {:src (:img feat)}]]]
+         (if (even? idx)
+           [:div.row txt img]
+           [:div.row img txt]))]])])
+
+(defn index [{data :data :as opts}]
+  [:div#index
+   (moto opts)
+   (scenario opts)])
+
 (def routes
   {:GET #'index
+   "features" {:GET #'features}
    "index" {:GET #'index}})
 
 (def styles
@@ -78,6 +125,11 @@
           :g 300}
    :macros {}
    :colors {:gray "#777"
+            :text "#444"
+            :white "#fff"
+            :text-yellow "#FDCD00"
+            :text-muted "#47525d"
+            :btn-gray "#424952"
             :black "black"
             :transparent "transparent"}})
 
