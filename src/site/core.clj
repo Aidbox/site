@@ -6,10 +6,11 @@
   [:div#navigation
    [:$style
     [:#navigation {:position "relative"
-                   :$padding [1.5 0]
+                   :$padding [3.5 0 0 0]
                    :margin 0
                    :$color [:blue :bereza]}
-     [:a.brand {:text-transform "uppercase"}]
+     [:a.brand {:text-transform "uppercase" :$color :white :$text [1.5 2 :uppercase] }
+      [:&:hover {:text-decoration "none"}] ]
      [:ul {:margin-bottom 0 :float "right"}
       [:li [:a {:text-transform "uppercase"
                 :$color :blue
@@ -60,11 +61,11 @@
   [:div#moto
    [:$style
     [:#moto
-     {:$color [:text :bereza]}
+     {:$color [:text :bereza] :background (str "#B4E1DA url('" (es/url "imgs" "background_cloud.png" ) "') bottom right no-repeat")}
      [:h1 {:$text [2 3 300] :$push-bottom 1}]
-     [:.moto {:$padding [10 30 5 0]}]
+     [:.moto {:$padding [6.5 30 5 0]}]
      [:.moto-btn {:$color [:white :blue]
-                  :$push-top 3
+                  :$push-top 1.5
                   :vertical-align "baselin"
                   :font-family "'Gotham', Arial, sans-serif"
                   :$text [1 1.5 :uppercase :baseline]
@@ -72,7 +73,7 @@
                   :border-radius "30px"
                   :$padding [1 4]}]
      [:.banner {:$height 30}]
-     [:p {:color "#555" :$text [1 1.5 200]}]]]
+     [:p {:color "#555" :$text [1 1.5 200] :$width 56}]]]
    [:div.container
     [:div.moto
      [:h1 (get-in data [:text :moto :subheader])]
@@ -83,10 +84,6 @@
   [:div#scenario
    [:$style
     [:#index
-     [:.enterprise {:text-align "center"
-                    :background-color "#f2f3f7"
-                    :margin 0
-                    :$padding [1 0]}]
      [:.box {:$padding [2 0 3]}
       [:h3 {:$text [1.5 3 :normal :uppercase]}]
       [:p {:$text [1.2 2 200]
@@ -95,9 +92,6 @@
               :margin-left "auto"
               :margin-right "auto"
               :$push-top 4}]]]]
-   [:div.enterprise
-    [:div.container
-     [:h3 "Check out enterprise version of aidbox"]]]
 
    (for [[idx feat] (map-indexed (fn [x y] [x y]) (get-in data [:scenarios]))]
      [:div.box
