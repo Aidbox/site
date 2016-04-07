@@ -5,11 +5,14 @@
 (defn navigation [{data :data :as opts}]
   [:div#navigation
    [:$style
-    [:#navigation
-     {:position "relative" :$margin [1.5 0]}
+    [:#navigation {:position "relative"
+                   :$padding [1.5 0]
+                   :margin 0
+                   :$color [:blue :bereza]}
      [:a.brand {:text-transform "uppercase"}]
      [:ul {:margin-bottom 0 :float "right"}
       [:li [:a {:text-transform "uppercase"
+                :$color :blue
                 :$padding 1}]]]]]
    [:div.container
     [:a.brand {:href "index"} (get-in data [:text :title])]
@@ -57,25 +60,23 @@
   [:div#moto
    [:$style
     [:#moto
-     {:$push-top 4 :$color [:text :bereza]}
+     {:$color [:text :bereza]}
      [:h1 {:$text [2 3 300] :$push-bottom 1}]
-     [:.moto {:$padding [10 0]}]
-     [:.moto-btn {:$color [:text-yellow :btn-gray]
-                  :$push-top 10
+     [:.moto {:$padding [10 30 5 0]}]
+     [:.moto-btn {:$color [:white :blue]
+                  :$push-top 3
                   :vertical-align "baselin"
                   :font-family "'Gotham', Arial, sans-serif"
                   :$text [1 1.5 :uppercase :baseline]
                   :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
-                  :border-radius 0
+                  :border-radius "30px"
                   :$padding [1 4]}]
      [:.banner {:$height 30}]
-     [:p {:color "#555" :$text [1.3 2 100]}]]]
+     [:p {:color "#555" :$text [1 1.5 200]}]]]
    [:div.container
-    [:div.row.moto
+    [:div.moto
      [:h1 (get-in data [:text :moto :subheader])]
-     [:p  (get-in data [:text :moto :text])]]]
-   [:div.banner
-    [:center
+     [:p  (get-in data [:text :moto :text])]
      [:button.btn.moto-btn "Try in Our Cloud"]]]])
 
 (defn scenario [{data :data :as opts}]
