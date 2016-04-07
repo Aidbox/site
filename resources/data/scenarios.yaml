@@ -1,5 +1,5 @@
 - id: facade
-  img: /imgs/aidbox_facade.png
+  img: aidbox_facade.png
   title: Aidbox as your API Facade
   text: >
     could be connected
@@ -11,36 +11,33 @@
 
 - id: backend
   title: Aidbox as your Backend 
-  # img: /imgs/aidbox_backend.png
-  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/docs-anywhere-vflA67DXc.png
+  img: aidbox_backend.png
   text: >
     can dramaticaly decrease "time to market" for your new health IT products
     by providing "out of the box" backbone features and continuous delivery pipeline.
     You can find more information on features page.
 
 - id: repo
-  # img: /imgs/aidbox_repository.png
-  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/work-on-slides-together-vfligazGL.png
+  img: aidbox_repository.png
   title: Aidbox as your Clinical Data Repository 
   text: > 
     can aggregate & normalize data (FHIR Information Model) from different sources
     and provides powerful tools like PostgreSQL, ElasticSearch, druid.io for Data Analytic & Desicion Support services.
 
 - id: ibus
-  # img: /imgs/aidbox_bus.png
-  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/work-on-slides-together-vfligazGL.png
+  img: aidbox_bus.png
   title: Aidbox as Integration Bus
   text: >
     can help connect systems to each other
     by flexible connectors for popular protocols (HL7v2, CDA/CCD, FHIR, custom)
     and REST, Messaging and Publish/Subscribe commnication patterns
 
-- id: micro
-  img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/send-videos-quickly-vflhWvqHj.png
-  title: Aidbox and Micro-Services
-  text: >
-    Aidbox is frendly for micro-service architecture.
-    Each box operates as independent service with isolated resources.
-    Boxes life-cycle and all other operations could be automated by REST API and SDK.
+# - id: micro
+#   img: https://cf.dropboxstatic.com/static/images/index/animation-strips/static-images/send-videos-quickly-vflhWvqHj.png
+#   title: Aidbox and Micro-Services
+#   text: >
+#     Aidbox is frendly for micro-service architecture.
+#     Each box operates as independent service with isolated resources.
+#     Boxes life-cycle and all other operations could be automated by REST API and SDK.
 
 

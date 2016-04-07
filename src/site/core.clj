@@ -15,7 +15,7 @@
     [:a.brand {:href "index"} (get-in data [:text :title])]
     [:ul.list-inline
      (for [x (data :menu)]
-       [:li [:a {:href (:href x)} (:title x)]])]]])
+       [:li [:a {:href (es/url (:href x))} (:title x)]])]]])
 
 
 (defn layout [{data :data :as opts} cnt]
@@ -57,8 +57,8 @@
   [:div#moto
    [:$style
     [:#moto
-     {:$padding [4 0]}
-     [:h1 {:$text [3 4 100] :$push-bottom 1}]
+     {:$push-top 4 :$color [:text :bereza]}
+     [:h1 {:$text [2 3 300] :$push-bottom 1}]
      [:.moto {:$padding [10 0]}]
      [:.moto-btn {:$color [:text-yellow :btn-gray]
                   :$push-top 10
@@ -68,14 +68,12 @@
                   :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
                   :border-radius 0
                   :$padding [1 4]}]
-     [:.banner {:background "url(/imgs/bg_banner.png)"
-                :$height 30}]
+     [:.banner {:$height 30}]
      [:p {:color "#555" :$text [1.3 2 100]}]]]
    [:div.container
     [:div.row.moto
-     [:center
-      [:h1 (get-in data [:text :moto :subheader])]
-      [:p  (get-in data [:text :moto :text])]]]]
+     [:h1 (get-in data [:text :moto :subheader])]
+     [:p  (get-in data [:text :moto :text])]]]
    [:div.banner
     [:center
      [:button.btn.moto-btn "Try in Our Cloud"]]]])
@@ -86,6 +84,7 @@
     [:#index
      [:.enterprise {:text-align "center"
                     :background-color "#f2f3f7"
+                    :margin 0
                     :$padding [1 0]}]
      [:.box {:$padding [2 0 3]}
       [:h3 {:$text [1.5 3 :normal :uppercase]}]
@@ -104,7 +103,7 @@
       [:div.container
        (let [txt [:.col-md-6 [:h3 (:title feat)]
                   [:p [:$md  (:text feat)]]]
-             img [:.col-md-6 [:img.img {:src (:img feat)}]]]
+             img [:.col-md-6 [:img.img {:src (es/url "imgs" (:img feat))}]]]
          (if (even? idx)
            [:div.row txt img]
            [:div.row img txt]))]])])
@@ -124,8 +123,11 @@
           :h 10
           :g 300}
    :macros {}
-   :colors {:gray "#777"
-            :text "#444"
+   :colors {:gray "#474747"
+            :text "#192F3D"
+            :bereza-text "#49645F"
+            :bereza "#B4E1DA"
+            :blue "#2B4961"
             :white "#fff"
             :text-yellow "#FDCD00"
             :text-muted "#47525d"
@@ -140,4 +142,5 @@
 (comment
   (def stop (es/start config))
   (es/generate config)
-  (stop))
+  (stop)
+  )
