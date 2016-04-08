@@ -85,6 +85,12 @@
                   :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
                   :border-radius "30px"
                   :$padding [1 3]}]
+     [:.or {:$text 0.8 :$color :gray :$margin [0 1]}]
+     [:.license {:$color :blue 
+                 :$text 1 
+                 :$border [:bottom :dashed 1 :blue]
+                 :padding-bottom "4px"
+                 }]
      [:.banner {:$height 30}]
      [:p {:color "#555" :$text [1 1.5 200] :$width 56}]]]
    [:div.container
