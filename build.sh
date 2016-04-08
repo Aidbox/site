@@ -1,13 +1,16 @@
 #!/bin/bash
 # set -e # exit with nonzero exit code if anything fails
 
+exit 1
+
 # clear and re-create the out directory
 rm -rf dist || exit 0;
 mkdir dist;
 
 # run our compile script, discussed above
 #env SITE_URL='/new-site/' lein generate
-lein generate
+#lein generate
+env SITE_URL='/site/' lein generate
 
 # go to the out directory and create a *new* Git repo
 cd dist
@@ -35,7 +38,7 @@ chmod 400 ../secure/key
 ssh-add ../secure/key
 
 echo 'Add origin'
-git remote add origin git@github.com:HealthSamurai/new-site.git
+git remote add origin git@github.com:Aidbox/site.git
 ssh-keyscan -H github.com > ~/.ssh/known_hosts
 echo 'Push to origin'
 git config --global push.default simple

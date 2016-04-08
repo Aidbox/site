@@ -134,8 +134,9 @@
              :styles #'styles
              :layout #'layout})
 
+(defn -main [] (es/generate config))
+
 (comment
   (def stop (es/start config))
-  (es/generate config)
-  (stop)
-  )
+  (es/generate (assoc config :prefix "site/"))
+  (stop))
