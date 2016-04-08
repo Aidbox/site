@@ -106,12 +106,14 @@
      [:h1 {:$text [1.5 2 300] :$push-bottom 1}]
      [:.moto {:$padding [6.6 30 5 0] :$height 30.5}]
      [:.banner {:$height 30}]
+     [:.chevron {:position "absolute" :bottom "10px" :right "50%"}]
      [:p {:color "#555" :$text [1 1.5 200] :$width 56}]]]
    [:div.container
     [:div.moto
      [:h1 (get-in data [:text :moto :subheader])]
      [:p  (get-in data [:text :moto :text])]
      [:img.molecule {:src (es/url "imgs" "molecule.png")}]
+     [:img.chevron {:src (es/url "imgs" "chevron.png")}]
      (try-in-cloud)
      ]]])
 
