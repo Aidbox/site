@@ -24,7 +24,8 @@
       [:&:hover {:text-decoration "none" 
                  :$border [:bottom :solid 1 :blue]}] ]]]
 
-   [:a.btn.moto-btn {:href "https://aidbox.io/ui#/signup"} "TRY IN CLOUD"]
+   [:span.btn-wrap 
+    [:a.btn.moto-btn {:href "https://aidbox.io/ui#/signup"} "TRY IN CLOUD"]]
    [:span.or " or "]
    [:a.license {:href "https://aidbox.io/ui"} "Request Enterprise License"] ])
 
@@ -140,10 +141,19 @@
 (defn footer [{data :data :as opts}]
   [:div#footer
    [:$style
-    [:#footer {:$bg-color :bereza :$height 20 :text-align "center"}] ]
-   [:h3 (get-in data [:text :footer :header])]
-   [:p (get-in data [:text :footer :text])] 
-   (try-in-cloud) ])
+    [:#footer {:$bg-color :bereza :$height 20 :text-align "center"
+               :$padding [3 0] }
+     [:.footer-container {:$width 40 :text-align "center" :margin "0 auto"}]
+     [:p {:$text 1 :$color :gray :$push-bottom 0.5}]
+     [:h2 {:$color :blue}] 
+     [:.try {:text-align "center" :margin "0 auto" :$width 26}
+      [:.btn-wrap {:display "block"}]
+      [:.btn {:$push-bottom 0.5} ] ] ] ] 
+   
+   [:div.footer-container
+    [:h2 (get-in data [:text :footer :header])]
+    [:p (get-in data [:text :footer :text])]
+    (try-in-cloud)] ])
 
 (defn index [{data :data :as opts}]
   [:div#index
