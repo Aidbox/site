@@ -3,7 +3,7 @@
             [gardner.core :as g]
             [dali.io :as dali]))
 
-(def try-in-cloud
+(defn try-in-cloud []
   [:div.try
    [:$style 
     [:.try
@@ -15,7 +15,7 @@
                   :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
                   :border-radius "30px"
                   :$padding [1 3]}
-      [:&:hover {:$bg-color (g/lighten :blue 10)}] ]
+      [:&:hover {:$bg-color :light-blue}] ]
      [:.or {:$text 0.8 :$color :gray :$margin [0 1]}]
      [:.license {:$color :blue 
                  :$text 1 
@@ -27,6 +27,7 @@
    [:a.btn.moto-btn {:href "https://aidbox.io/ui#/signup"} "TRY IN CLOUD"]
    [:span.or " or "]
    [:a.license {:href "https://aidbox.io/ui"} "Request Enterprise License"] ])
+
 
 (defn navigation [{data :data :as opts}]
   [:div#navigation
@@ -110,7 +111,7 @@
      [:h1 (get-in data [:text :moto :subheader])]
      [:p  (get-in data [:text :moto :text])]
      [:img.molecule {:src (es/url "imgs" "molecule.png")}]
-     try-in-cloud
+     (try-in-cloud)
      ]]])
 
 (defn scenario [{data :data :as opts}]
@@ -142,8 +143,7 @@
     [:#footer {:$bg-color :bereza :$height 20 :text-align "center"}] ]
    [:h3 (get-in data [:text :footer :header])]
    [:p (get-in data [:text :footer :text])] 
-   
-   try-in-cloud ])
+   (try-in-cloud) ])
 
 (defn index [{data :data :as opts}]
   [:div#index
@@ -166,6 +166,7 @@
             :bereza-text "#49645F"
             :bereza "#B4E1DA"
             :blue "#2B4961"
+            :light-blue "#406E93"
             :white "#fff"
             :text-yellow "#FDCD00"
             :text-muted "#47525d"
