@@ -18,9 +18,10 @@
                 :$padding 1}]]]
      [:.sign-in {:$color :blue
                  :$border [:solid 2  :blue] 
+                 :$push-left 1
                  :$padding [0.3 2.2] 
                  :border-radius "20px"}]
-     [:.navigation {:$flex-row [:beseline :stretch]}] ]]
+     [:.navigation {:$flex-row [:baseline :space-between]}] ]]
    [:div.container.navigation
     [:div.brand
      [:a {:href "index"} (get-in data [:text :title])]]
