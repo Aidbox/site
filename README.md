@@ -1,6 +1,6 @@
 ## HealthSamurai Official Site
 
-[![Build Status](https://travis-ci.org/HealthSamurai/new-site.svg?branch=master)](https://travis-ci.org/HealthSamurai/new-site)
+[![Build Status](https://travis-ci.org/Aidbox/site.svg?branch=master)](https://travis-ci.org/Aidbox/site)
 
 ```
 # dev server
