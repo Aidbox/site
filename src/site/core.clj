@@ -1,6 +1,32 @@
 (ns site.core
   (:require [esthatic.core :as es]
+            [gardner.core :as g]
             [dali.io :as dali]))
+
+(def try-in-cloud
+  [:div.try
+   [:$style 
+    [:.try
+     [:.moto-btn {:$color [:white :blue]
+                  :$push-top 1
+                  :vertical-align "baselin"
+                  :font-family "'Gotham', Arial, sans-serif"
+                  :$text [1 1 :uppercase :baseline]
+                  :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
+                  :border-radius "30px"
+                  :$padding [1 3]}
+      [:&:hover {:$bg-color (g/lighten :blue 10)}] ]
+     [:.or {:$text 0.8 :$color :gray :$margin [0 1]}]
+     [:.license {:$color :blue 
+                 :$text 1 
+                 :$border [:bottom :dashed 1 :blue]
+                 :padding-bottom "4px" }
+      [:&:hover {:text-decoration "none" 
+                 :$border [:bottom :solid 1 :blue]}] ]]]
+
+   [:a.btn.moto-btn {:href "https://aidbox.io/ui#/signup"} "TRY IN CLOUD"]
+   [:span.or " or "]
+   [:a.license {:href "https://aidbox.io/ui"} "Request Enterprise License"] ])
 
 (defn navigation [{data :data :as opts}]
   [:div#navigation
@@ -28,7 +54,7 @@
     [:ul.list-inline
      (for [x (data :menu)]
        [:li [:a {:href (es/url (:href x))} (:title x)]])]
-    [:a.sign-in {:href "#"} "SIGN IN"]    ]])
+    [:a.sign-in {:href "https://aidbox.io/ui"} "SIGN IN"]    ]])
 
 
 (defn layout [{data :data :as opts} cnt]
@@ -77,20 +103,6 @@
      [:.molecule {:position "absolute" :right "70px" :bottom "25px"}]
      [:h1 {:$text [1.5 2 300] :$push-bottom 1}]
      [:.moto {:$padding [6.6 30 5 0] :$height 30.5}]
-     [:.moto-btn {:$color [:white :blue]
-                  :$push-top 1
-                  :vertical-align "baselin"
-                  :font-family "'Gotham', Arial, sans-serif"
-                  :$text [1 1 :uppercase :baseline]
-                  :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
-                  :border-radius "30px"
-                  :$padding [1 3]}]
-     [:.or {:$text 0.8 :$color :gray :$margin [0 1]}]
-     [:.license {:$color :blue 
-                 :$text 1 
-                 :$border [:bottom :dashed 1 :blue]
-                 :padding-bottom "4px"
-                 }]
      [:.banner {:$height 30}]
      [:p {:color "#555" :$text [1 1.5 200] :$width 56}]]]
    [:div.container
@@ -98,9 +110,7 @@
      [:h1 (get-in data [:text :moto :subheader])]
      [:p  (get-in data [:text :moto :text])]
      [:img.molecule {:src (es/url "imgs" "molecule.png")}]
-     [:button.btn.moto-btn "TRY IN CLOUD"]
-     [:span.or " or "]
-     [:a.license {:href "#"} "Request Enterprise License"] 
+     try-in-cloud
      ]]])
 
 (defn scenario [{data :data :as opts}]
@@ -131,7 +141,9 @@
    [:$style
     [:#footer {:$bg-color :bereza :$height 20 :text-align "center"}] ]
    [:h3 (get-in data [:text :footer :header])]
-   [:p (get-in data [:text :footer :text])] ])
+   [:p (get-in data [:text :footer :text])] 
+   
+   try-in-cloud ])
 
 (defn index [{data :data :as opts}]
   [:div#index
