@@ -1,9 +1,16 @@
 title: "AIDBOX"
 moto:
   header: "Aidbox"
-  subheader: "Backend for your next healthcare app 111"
+  subheader: "Backend for your next healthcare app"
   text: >-
     Aidbox is ready to use cloud platform, which
     can dramaticaly simplify and speed-up development of
     your new healthcare solutions, extend and inter-connect your 
     existing systems
+
+footer:
+  header: "TRY AIDBOX"
+  text: >-
+    Ready to use cloud platform for next-generation
+    healthcare information systems.
+

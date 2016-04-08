@@ -6,20 +6,28 @@
   [:div#navigation
    [:$style
     [:#navigation {:position "relative"
-                   :$padding [3.5 0 0 0]
+                   :$padding [1.5 0 0 0]
                    :margin 0
                    :$color [:blue :bereza]}
-     [:a.brand {:text-transform "uppercase" :$color :white :$text [1.5 2 :uppercase] }
-      [:&:hover {:text-decoration "none"}] ]
-     [:ul {:margin-bottom 0 :float "right"}
-      [:li [:a {:text-transform "uppercase"
-                :$color :blue
-                :$padding 1}]]]]]
-   [:div.container
-    [:a.brand {:href "index"} (get-in data [:text :title])]
+     [:.brand {:$flex-full  true}
+      [:a {:text-transform "uppercase" :$color :white :$text [1.5 1.5 :uppercase] }
+       [:&:hover {:text-decoration "none"}]] ]
+     [:ul {:margin-bottom 0}
+      [:li [:a {:$color :blue
+                :$text [1 2]
+                :$padding 1}]]]
+     [:.sign-in {:$color :blue
+                 :$border [:solid 2  :blue] 
+                 :$padding [0.3 2.2] 
+                 :border-radius "20px"}]
+     [:.navigation {:$flex-row [:beseline :stretch]}] ]]
+   [:div.container.navigation
+    [:div.brand
+     [:a {:href "index"} (get-in data [:text :title])]]
     [:ul.list-inline
      (for [x (data :menu)]
-       [:li [:a {:href (es/url (:href x))} (:title x)]])]]])
+       [:li [:a {:href (es/url (:href x))} (:title x)]])]
+    [:a.sign-in {:href "#"} "SIGN IN"]    ]])
 
 
 (defn layout [{data :data :as opts} cnt]
@@ -61,24 +69,32 @@
   [:div#moto
    [:$style
     [:#moto
-     {:$color [:text :bereza] :background (str "#B4E1DA url('" (es/url "imgs" "background_cloud.png" ) "') bottom right no-repeat")}
-     [:h1 {:$text [2 3 300] :$push-bottom 1}]
-     [:.moto {:$padding [6.5 30 5 0]}]
+     {:$color [:text :bereza] 
+      :background (str "#B4E1DA url('" (es/url "imgs" "background_cloud.png" ) "') 100% 160% no-repeat")
+      :$push-bottom 2.5
+      :position "relative" }
+     [:.molecule {:position "absolute" :right "70px" :bottom "25px"}]
+     [:h1 {:$text [1.5 2 300] :$push-bottom 1}]
+     [:.moto {:$padding [6.6 30 5 0] :$height 30.5}]
      [:.moto-btn {:$color [:white :blue]
-                  :$push-top 1.5
+                  :$push-top 1
                   :vertical-align "baselin"
                   :font-family "'Gotham', Arial, sans-serif"
-                  :$text [1 1.5 :uppercase :baseline]
+                  :$text [1 1 :uppercase :baseline]
                   :box-shadow "0 2px 5px rgba(0,0,0,0.5)"
                   :border-radius "30px"
-                  :$padding [1 4]}]
+                  :$padding [1 3]}]
      [:.banner {:$height 30}]
      [:p {:color "#555" :$text [1 1.5 200] :$width 56}]]]
    [:div.container
     [:div.moto
      [:h1 (get-in data [:text :moto :subheader])]
      [:p  (get-in data [:text :moto :text])]
-     [:button.btn.moto-btn "Try in Our Cloud"]]]])
+     [:img.molecule {:src (es/url "imgs" "molecule.png")}]
+     [:button.btn.moto-btn "TRY IN CLOUD"]
+     [:span.or " or "]
+     [:a.license {:href "#"} "Request Enterprise License"] 
+     ]]])
 
 (defn scenario [{data :data :as opts}]
   [:div#scenario
@@ -103,10 +119,18 @@
            [:div.row txt img]
            [:div.row img txt]))]])])
 
+(defn footer [{data :data :as opts}]
+  [:div#footer
+   [:$style
+    [:#footer {:$bg-color :bereza :$height 20 :text-align "center"}] ]
+   [:h3 (get-in data [:text :footer :header])]
+   [:p (get-in data [:text :footer :text])] ])
+
 (defn index [{data :data :as opts}]
   [:div#index
    (moto opts)
-   (scenario opts)])
+   (scenario opts)
+   (footer opts) ])
 
 (def routes
   {:GET #'index
