@@ -1,6 +1,11 @@
 (ns site.core
   (:require [esthatic.core :as es]
             [gardner.core :as g]
+            [garden.stylesheet :as gs]
+            [endophile.core :as ec ]
+            [clojure.java.io :as io]
+            [endophile.hiccup :as  eh]
+            [garden.units :as gu]
             [dali.io :as dali]))
 
 (defn try-in-cloud []
@@ -29,7 +34,6 @@
    [:span.or " or "]
    [:a.license {:href "https://aidbox.io/ui"} "Request Enterprise License"] ])
 
-
 (defn navigation [{data :data :as opts}]
   [:div#navigation
    [:$style
@@ -57,7 +61,6 @@
      (for [x (data :menu)]
        [:li [:a {:href (es/url (:href x))} (:title x)]])]
     [:a.sign-in {:href "https://aidbox.io/ui"} "SIGN IN"]    ]])
-
 
 (defn layout [{data :data :as opts} cnt]
   [:html
@@ -96,6 +99,8 @@
 
 (defn moto [{data :data :as opts}]
   [:div#moto
+   [:style (garden.core/css (gs/at-media {:max-width (gu/px 400)}
+               [:#moto {:display "none"}]))]
    [:$style
     [:#moto
      {:$color [:text :bereza] 
@@ -163,9 +168,26 @@
    (scenario opts)
    (footer opts) ])
 
+(defn name-without-extension [f]
+  (get (re-find #"(.+?).md$" f) 1))
+
+(defn docs [{{id :id} :params data :data :as opts}]
+  [:div
+   (eh/to-hiccup (ec/mp (slurp (io/resource (str "docs/" id ".md")))))])
+
+(defn docs-pages []
+  (let [dir (io/file (io/resource "docs"))
+        files (filter #(re-matches #"(.+?).md$" (.getName %))
+                (rest (file-seq dir))) ]
+    (mapv #(name-without-extension (.getName %)) files)))
+
+(docs-pages)
+
 (def routes
   {:GET #'index
    "features" {:GET #'features}
+   "docs" {[:id] {:GET #'docs}
+           :id docs-pages }
    "index" {:GET #'index}})
 
 (def styles
@@ -193,6 +215,9 @@
 (defn -main [] (es/generate config))
 
 (comment
+
+  (get (re-find #"(.+?).md$" "Fooo.md") 1)
+
   (def stop (es/start config))
   (es/generate (assoc config :prefix "site/"))
   (stop))
