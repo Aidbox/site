@@ -2,7 +2,7 @@
 
 We are offering this tutorial for learning core concepts of application development with Aidbox. We will develop a sample [AngularJS](https://angularjs.org), Web application which consists of a form for onboarding patients (CRUD) with a search by name function.
 
-![Sample SPA](./app.png)
+![Sample SPA](/site/imgs/app.png)
 
 After completing this tutorial you should learn:
 

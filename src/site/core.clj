@@ -38,7 +38,7 @@
   [:div#navigation
    [:$style
     [:#navigation {:position "relative"
-                   :$padding [1.5 0 0 0]
+                   :$padding [1.5 0 1.5 0]
                    :margin 0
                    :$color [:blue :bereza]}
      [:.brand {:$flex-full  true}
@@ -56,7 +56,7 @@
      [:.navigation {:$flex-row [:baseline :space-between]}] ]]
    [:div.container.navigation
     [:div.brand
-     [:a {:href "index"} (get-in data [:text :title])]]
+     [:a {:href "/index"} (get-in data [:text :title])]]
     [:ul.list-inline
      (for [x (data :menu)]
        [:li [:a {:href (es/url (:href x))} (:title x)]])]
@@ -109,7 +109,7 @@
       :position "relative" }
      [:.molecule {:position "absolute" :right "70px" :bottom "25px"}]
      [:h1 {:$text [1.5 2 300] :$push-bottom 1}]
-     [:.moto {:$padding [6.6 30 5 0] :$height 30.5}]
+     [:.moto {:$padding [5 30 5 0] :$height 30.5}]
      [:.banner {:$height 30}]
      [:.chevron {:position "absolute" :bottom "10px" :right "50%"}]
      [:p {:color "#555" :$text [1 1.5 200] :$width 56}]]]
@@ -168,25 +168,34 @@
    (scenario opts)
    (footer opts) ])
 
-(defn name-without-extension [f]
-  (get (re-find #"(.+?).md$" f) 1))
-
-(defn docs [{{id :id} :params data :data :as opts}]
-  [:div
-   (eh/to-hiccup (ec/mp (slurp (io/resource (str "docs/" id ".md")))))])
+(defn basename [name]
+  (get (re-find #"(.+?).md$" name) 1))
 
 (defn docs-pages []
   (let [dir (io/file (io/resource "docs"))
         files (filter #(re-matches #"(.+?).md$" (.getName %))
                 (rest (file-seq dir))) ]
-    (mapv #(name-without-extension (.getName %)) files)))
+    (mapv #(basename (.getName %)) files)))
 
-(docs-pages)
+(defn docs [{{id :id} :params data :data :as opts}]
+  [:div.container
+   [:div.row
+    [:nav#submenu.col-sm-2
+     [:$style [:#submenu {:$push-top 1}] ]
+     [:ul.nav
+      (for [i (docs-pages)] ^{:key i}
+        [:li [:a {:href (es/url "docs" i)} i]])]] 
+    [:div.col-sm-10
+     [:$style [:code {:white-space "pre" :display "block"} ] ]
+     [:div.markdown
+      (eh/to-hiccup (ec/mp (slurp (io/resource (str "docs/" id ".md")))))]] ]])
+
 
 (def routes
   {:GET #'index
    "features" {:GET #'features}
-   "docs" {[:id] {:GET #'docs}
+   "docs" {:GEET #'docs
+           [:id] {:GET #'docs}
            :id docs-pages }
    "index" {:GET #'index}})
 
@@ -215,9 +224,6 @@
 (defn -main [] (es/generate config))
 
 (comment
-
-  (get (re-find #"(.+?).md$" "Fooo.md") 1)
-
   (def stop (es/start config))
   (es/generate (assoc config :prefix "site/"))
   (stop))
