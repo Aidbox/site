@@ -37,7 +37,9 @@ First, you need to create a table of patients.
 1. Open FHIRBase Console
 2. Execute the following query:
 
-```SELECT fhir_create_storage('{"resourceType": "Patient"}'::json);```
+```
+SELECT fhir_create_storage('{"resourceType": "Patient"}'::json);
+```
 
 Then you can add a new patient:
 
