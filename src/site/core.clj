@@ -139,18 +139,25 @@
    (for [[idx feat] (map-indexed (fn [x y] [x y]) (get-in data [:scenarios]))]
      [:div.box
       [:div.container
-       (let [txt [:.col-md-6 [:h3 (:title feat)]
+       (let [txt [:div [:h3 (:title feat)]
                   [:p [:$md  (:text feat)]]]
-             img [:.col-md-6 [:img.img {:src (es/url "imgs" (:img feat))}]]]
+             img [:div [:img.img {:src (es/url "imgs" (:img feat))}]]]
          (if (even? idx)
-           [:div.row txt img]
-           [:div.row img txt]))]])])
+           [:div.row 
+            [:div.col-sm-6.col-sm-push-6 img] 
+            [:div.col-sm-6.col-sm-pull-6 txt]]
+           [:div.row 
+            [:div.col-sm-6 img] 
+            [:div.col-sm-6 txt] ]
+           ))]])])
 
 (defn footer [{data :data :as opts}]
   [:div#footer
+   
    [:$style
     [:#footer {:$bg-color :bereza :$height 20 :text-align "center"
                :$padding [3 0] }
+  
      [:.footer-container {:$width 40 :text-align "center" :margin "0 auto"}]
      [:p {:$text 1 :$color :gray :$push-bottom 0.5}]
      [:h2 {:$color :blue}] 
@@ -158,6 +165,9 @@
       [:.btn-wrap {:display "block"}]
       [:.btn {:$push-bottom 0.5} ] ] ] ] 
    
+   [:$media {:max-width "400px"}
+      [:#footer [:.footer-container {:width "75%" :margin "0 auto"}]]]
+
    [:div.footer-container
     [:h2 (get-in data [:text :footer :header])]
     [:p (get-in data [:text :footer :text])]
