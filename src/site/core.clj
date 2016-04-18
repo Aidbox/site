@@ -114,6 +114,14 @@
      [:.banner {:$height 30}]
      [:.chevron {:position "absolute" :bottom "10px" :right "50%"}]
      [:p {:color "#555" :$text [1 1.5 200] :$width 56}]]]
+   [:$media {:max-width "750px"}
+    [:#moto 
+     [:.molecule {:width "266px" :right "5%" :bottom 0}]
+     [:.chevron {:display "none"}]
+     [:.try {:text-align  "center"}]
+     [:.moto {:height "auto" :padding 0 :padding-bottom "310px"}]
+     [:p {:width "auto"}]] 
+    ]
    [:div.container
     [:div.moto
      [:h1 (get-in data [:text :moto :subheader])]
