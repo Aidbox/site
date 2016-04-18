@@ -2,6 +2,7 @@
   (:require [esthatic.core :as es]
             [gardner.core :as g]
             [garden.stylesheet :as gs]
+            [garden.units :as gu]
             [endophile.core :as ec ]
             [clojure.java.io :as io]
             [endophile.hiccup :as  eh]
@@ -36,6 +37,7 @@
 
 (defn navigation [{data :data :as opts}]
   [:div#navigation
+
    [:$style
     [:#navigation {:position "relative"
                    :$padding [1.5 0 1.5 0]
@@ -65,6 +67,7 @@
 (defn layout [{data :data :as opts} cnt]
   [:html
    [:head
+    [:meta {:name "viewport" :content "initial-scale=1, maximum-scale=1"}]
     [:$cdn-css :bootsrtrap]
     [:$google-font :Exo-2]
     [:$style
@@ -99,8 +102,6 @@
 
 (defn moto [{data :data :as opts}]
   [:div#moto
-   [:style (garden.core/css (gs/at-media {:max-width (gu/px 400)}
-               [:#moto {:display "none"}]))]
    [:$style
     [:#moto
      {:$color [:text :bereza] 
