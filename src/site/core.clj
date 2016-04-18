@@ -30,6 +30,9 @@
       [:&:hover {:text-decoration "none" 
                  :$border [:bottom :solid 1 :blue]}] ]]]
 
+   [:$media {:max-width "480px"}
+    [:.btn-wrap {:display "block"}] ]
+
    [:span.btn-wrap 
     [:a.btn.moto-btn {:href "https://aidbox.io/ui#/signup"} "TRY IN CLOUD"]]
    [:span.or " or "]
@@ -43,6 +46,9 @@
                    :$padding [1.5 0 1.5 0]
                    :margin 0
                    :$color [:blue :bereza]}
+     [:.desctop {:$flex-row [:baseline :space-between]}]   
+     [:.navbar-header {:$flex-row [:center :space-between]}]   
+     [:.icon-bar {:$bg-color :gray}]
      [:.brand {:$flex-full  true}
       [:a {:text-transform "uppercase" :$color :white :$text [1.5 1.5 :uppercase] }
        [:&:hover {:text-decoration "none"}]] ]
@@ -54,15 +60,46 @@
                  :$border [:solid 2  :blue] 
                  :$push-left 1
                  :$padding [0.3 2.2] 
-                 :border-radius "20px"}]
-     [:.navigation {:$flex-row [:baseline :space-between]}] ]]
-   [:div.container.navigation
-    [:div.brand
-     [:a {:href "/index"} (get-in data [:text :title])]]
+                 :border-radius "20px"}] ]]
+   [:$media {:min-width "479px"}
+    [:#navigation
+     [:.mobile {:display "none"}] ]]
+
+   [:$media {:max-width "480px"}
+    [:#navigation {:padding "15px 0 0"}
+     [:.brand {:padding-left "15px"}]
+     [:ul {:margin-bottom "10px" :display "none"}]
+     [(keyword "#group:checked + ul") {:display "block !important"}]
+     [:.sign-in {:margin-left "10px"}]
+     [:.desctop {:display "none"}]
+     [:.sign-in-li-item {:margin-top "10px"}]
+     [:li {:width "100%"}] ] ]
+
+   [:div.container.navigation.desctop
+     [:div.brand
+      [:a {:href "/index"} (get-in data [:text :title])]]
     [:ul.list-inline
      (for [x (data :menu)]
        [:li [:a {:href (es/url (:href x))} (:title x)]])]
-    [:a.sign-in {:href "https://aidbox.io/ui"} "SIGN IN"]    ]])
+    [:a.sign-in {:href "https://aidbox.io/ui"} "SIGN IN"] ]
+   
+   [:div.container.navigation.mobile
+    [:.navbar-header
+     [:div.brand
+      [:a {:href "/index"} (get-in data [:text :title])]] 
+     [:label {:for "group"}
+      [:div.navbar-toggle
+       [:span {:class "sr-only"} "Toggle navigation"]
+       [:span {:class "icon-bar"}]
+       [:span {:class "icon-bar"}]
+       [:span {:class "icon-bar"}]] ] ]
+    [:input#group.hidden {:type "checkbox"}]
+    [:ul.list-inline
+     (for [x (data :menu)]
+       [:li [:a {:href (es/url (:href x))} (:title x)]])
+     [:li.sign-in-li-item
+      [:a.sign-in {:href "https://aidbox.io/ui"} "SIGN IN"]]]]
+   ])
 
 (defn layout [{data :data :as opts} cnt]
   [:html
@@ -122,6 +159,12 @@
      [:.moto {:height "auto" :padding 0 :padding-bottom "310px"}]
      [:p {:width "auto"}]] 
     ]
+
+   [:$media {:min-width "750px" :max-width "1020px"}
+    [:#moto
+    [:.moto {:padding 0}]
+    [:.chevron {:display "none"}]
+    [:.molecule {:width "280px"}]]]
    [:div.container
     [:div.moto
      [:h1 (get-in data [:text :moto :subheader])]
@@ -143,6 +186,9 @@
               :margin-left "auto"
               :margin-right "auto"
               :$push-top 4}]]]]
+
+   [:$media {:max-width "480px"}
+    [:#index [:.box {:padding 0}]] ]
 
    (for [[idx feat] (map-indexed (fn [x y] [x y]) (get-in data [:scenarios]))]
      [:div.box
