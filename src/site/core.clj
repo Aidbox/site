@@ -248,8 +248,8 @@
     [:nav#submenu.col-sm-2
      [:$style [:#submenu {:$push-top 1}] ]
      [:ul.nav
-      (for [i (docs-pages)] ^{:key i}
-        [:li [:a {:href (es/url "docs" i)} i]])]] 
+      (for [i (:docs data)] ^{:key (basename (:file i))}
+        [:li [:a {:href (es/url "docs" (basename (:file i)))} (:title i)]])]] 
     [:div.col-sm-10
      [:$style [:code {:white-space "pre" :display "block"} ] ]
      [:div.markdown
