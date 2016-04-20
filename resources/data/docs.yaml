@@ -2,20 +2,28 @@
   title: Overview
 
 - file: Getting_Started.md
-  title: Getting started
-
-- file: Tutorial.md
-  title: Tutorial
+  title: Getting Started
 
 - file: aidbox_CLI.md
   title: Aidbox CLI
 
-- file: box_tutorial.md
-  title: Box tutorial
+- file: Tutorial.md
+  title: Sample Application
 
-- file: Queues.md
-  title: Queues
-    
+- file: Users_and_Groups.md
+  title: Users and Groups
+      
 - file: Security.md
   title: Security
 
+- file: Clients.md
+  title: Clients
+  
+- file: Developer_Tools.md
+  title: Developer Tools
+  
+- file: Queues.md
+  title: Queues
+  
+- file: Logs.md
+  title: Logs  
