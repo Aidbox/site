@@ -8,7 +8,7 @@ Now you need to install aidbox-cli utility globally. Also you may need to instal
 $ sudo npm install -g coffee-script
 $ sudo npm install -g aidbox-cli
 $ aidbox v
-  OK: v0.4.2
+  OK: v0.5.9
 ```
 
 ## Logging In and Out
