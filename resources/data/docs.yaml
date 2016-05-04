@@ -3,6 +3,9 @@
 
 - file: Getting_Started.md
   title: Getting Started
+  
+- file: box_lifecycle.md
+  title: Box Lifecycle 
 
 - file: aidbox_CLI.md
   title: Aidbox CLI
