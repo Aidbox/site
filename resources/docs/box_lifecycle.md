@@ -2,7 +2,7 @@
 
 ### Dashboard
 
-The Dashboard is a place where you can see all your existing boxes, and create, share and destroy boxes. Each box in the Dashboard has a name, an URL where it will be deployed, a list of users the box is shared with, destroy option and payment plan indicator.
+The Dashboard is a place where you can see all your existing boxes, and create, manage, share and destroy boxes. Each box in the Dashboard has a name, an URL where it will be deployed, a list of users the box is shared with, destroy option and payment plan indicator.
 
 ### Create a Box
 
@@ -12,6 +12,14 @@ The Dashboard is a place where you can see all your existing boxes, and create, 
   ![scr-14 04 2016_09-55-31](https://cloud.githubusercontent.com/assets/345535/15012241/c97b80c8-11ff-11e6-956a-f14b4674ef6e.png)
 4. A new box with the entered name will appear on the dashboard
   ![scr-14 04 2016_09-55-37](https://cloud.githubusercontent.com/assets/345535/15012276/10a9840e-1200-11e6-9660-71180c3e209d.png)
+
+### Manage a Box
+
+1. Open Dashboard
+2. Click on the box name
+  ![scr-04 05 2016_15-44-30](https://cloud.githubusercontent.com/assets/345535/15014677/1cf9b804-1210-11e6-931f-2a8ee14e06cf.png)
+3. You will be directed to the box dashboard where you will see navigation menu and information about your box like Fhirbase version, number of users and number of resources in the box:
+  ![scr-04 05 2016_15-46-22](https://cloud.githubusercontent.com/assets/345535/15014684/22f46b6e-1210-11e6-86a3-6793ceae18a9.png)
 
 ### Box Sharing
 
