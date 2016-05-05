@@ -1,3 +1,5 @@
+# [DEPRECATED] No longer being actively developed
+
 ## HealthSamurai Official Site
 
 [![Build Status](https://travis-ci.org/Aidbox/site.svg?branch=master)](https://travis-ci.org/Aidbox/site)
