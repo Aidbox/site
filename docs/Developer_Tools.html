@@ -1,0 +1,292 @@
+<html><head><meta content="initial-scale=1, maximum-scale=1" name="viewport" /><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Exo+2:400,100,100italic,200,200italic,300,300italic,400italic,500,900italic,500italic,600,600italic,700,700italic,800,800italic,900" rel="stylesheet" type="text/css" /><style type="text/css">body {
+  font-family: 'Exo 2';
+}</style></head><body><div id="navigation"><style type="text/css">#navigation {
+  position: relative;
+  padding-top: 27.0px;
+  padding-left: 0px;
+  padding-bottom: 27.0px;
+  padding-right: 0px;
+  margin: 0;
+  color: #2B4961;
+  background-color: #B4E1DA;
+}
+
+#navigation .desctop {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+#navigation .navbar-header {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#navigation .icon-bar {
+  background-color: #474747;
+}
+
+#navigation .brand {
+  -webkit-box-flex: 1;
+     -webkit-flex-grow: 1;
+         -ms-flex-positive: 1;
+             flex-grow: 1;
+}
+
+#navigation .brand a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 27.0px;
+  line-height: 27.0px;
+}
+
+#navigation .brand a:hover {
+  text-decoration: none;
+}
+
+#navigation ul {
+  margin-bottom: 0;
+}
+
+#navigation ul li a {
+  color: #2B4961;
+  font-size: 18px;
+  line-height: 36px;
+  padding-top: 18px;
+  padding-left: 10px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+}
+
+#navigation .sign-in {
+  border-width: 2px;
+  padding-bottom: 5.3999999999999995px;
+  border-color: #2B4961;
+  border-style: solid;
+  margin-left: 18px;
+  padding-right: 22.0px;
+  border-radius: 20px;
+  color: #2B4961;
+  padding-left: 22.0px;
+  padding-top: 5.3999999999999995px;
+}</style><style type="text/css">@media (min-width: 479px) {
+
+  
+  
+  #navigation .mobile {
+    display: none;
+  }
+
+}</style><style type="text/css">@media (max-width: 480px) {
+
+  #navigation {
+    padding: 15px 0 0;
+  }
+  
+  #navigation .brand {
+    padding-left: 15px;
+  }
+  
+  #navigation ul {
+    margin-bottom: 10px;
+    display: none;
+  }
+  
+  #navigation #group:checked + ul {
+    display: block !important;
+  }
+  
+  #navigation .sign-in {
+    margin-left: 10px;
+  }
+  
+  #navigation .desctop {
+    display: none;
+  }
+  
+  #navigation .sign-in-li-item {
+    margin-top: 10px;
+  }
+  
+  #navigation li {
+    width: 100%;
+  }
+
+}</style><div class="container navigation desctop"><div class="brand"><a href="/index">AIDBOX</a></div><ul class="list-inline"><li><a href="/site/features.html">Features</a></li><li><a href="/site/docs/Overview.html">Documentation</a></li></ul><a class="sign-in" href="https://aidbox.io/ui">SIGN IN</a></div><div class="container navigation mobile"><div class="navbar-header"><div class="brand"><a href="/index">AIDBOX</a></div><label for="group"><div class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></label></div><input class="hidden" id="group" type="checkbox" /><ul class="list-inline"><li><a href="/site/features.html">Features</a></li><li><a href="/site/docs/Overview.html">Documentation</a></li><li class="sign-in-li-item"><a class="sign-in" href="https://aidbox.io/ui">SIGN IN</a></li></ul></div></div><div class="container"><div class="row"><nav class="col-sm-2" id="submenu"><style type="text/css">#submenu {
+  margin-top: 18px;
+}</style><ul class="nav"><li><a href="/site/docs/Overview.html">Overview</a></li><li><a href="/site/docs/Getting_Started.html">Getting Started</a></li><li><a href="/site/docs/box_lifecycle.html">Box Lifecycle</a></li><li><a href="/site/docs/aidbox_CLI.html">Aidbox CLI</a></li><li><a href="/site/docs/Tutorial.html">Sample Application</a></li><li><a href="/site/docs/Users_and_Groups.html">Users and Groups</a></li><li><a href="/site/docs/Security.html">Security</a></li><li><a href="/site/docs/Clients.html">Clients</a></li><li><a href="/site/docs/Developer_Tools.html">Developer Tools</a></li><li><a href="/site/docs/Queues.html">Queues</a></li><li><a href="/site/docs/Logs.html">Logs</a></li></ul></nav><div class="col-sm-10"><style type="text/css">code {
+  white-space: pre;
+  display: block;
+}</style><div class="markdown"><h1>How to work with the REST Console</h1><p>First, you need to create a table of patients.</p><ol><li>Open FHIRBase Console</li><li>Execute the following query:</li></ol><pre><code>SELECT fhir_create_storage('{"resourceType": "Patient"}'::json);
+</code></pre><p>Then you can add a new patient:</p><ol><li>Open REST Console</li><li>Select the POST method</li><li>Enter <code>fhir/Patient</code> after the slash</li><li>Paste a JSON example of the Patient resource from the FHIR specification, having removed a line with id assigning, into the request body.</li></ol><p><code>
+  {
+  "resourceType": "Patient",
+  "text": {
+    "status": "generated",
+    "div": "&lt;div&gt;\n      \n      &lt;table&gt;\n        \n        &lt;tbody&gt;\n          \n          &lt;tr&gt;\n            \n            &lt;td&gt;Name&lt;/td&gt;\n            \n            &lt;td&gt;Peter James \n              &lt;b&gt;Chalmers&lt;/b&gt; (&amp;quot;Jim&amp;quot;)\n            &lt;/td&gt;\n          \n          &lt;/tr&gt;\n          \n          &lt;tr&gt;\n            \n            &lt;td&gt;Address&lt;/td&gt;\n            \n            &lt;td&gt;534 Erewhon, Pleasantville, Vic, 3999&lt;/td&gt;\n          \n          &lt;/tr&gt;\n          \n          &lt;tr&gt;\n            \n            &lt;td&gt;Contacts&lt;/td&gt;\n            \n            &lt;td&gt;Home: unknown. Work: (03) 5555 6473&lt;/td&gt;\n          \n          &lt;/tr&gt;\n          \n          &lt;tr&gt;\n            \n            &lt;td&gt;Id&lt;/td&gt;\n            \n            &lt;td&gt;MRN: 12345 (Acme Healthcare)&lt;/td&gt;\n          \n          &lt;/tr&gt;\n        \n        &lt;/tbody&gt;\n      \n      &lt;/table&gt;    \n    \n    &lt;/div&gt;"
+  },
+  "identifier": [
+    {
+      "fhir_comments": [
+        "   MRN assigned by ACME healthcare on 6-May 2001   "
+      ],
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "12345",
+      "period": {
+        "start": "2001-05-06"
+      },
+      "assigner": {
+        "display": "Acme Healthcare"
+      }
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "fhir_comments": [
+        "   Peter James Chalmers, but called \"Jim\"   "
+      ],
+      "use": "official",
+      "family": [
+        "Chalmers"
+      ],
+      "given": [
+        "Peter",
+        "James"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Jim"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "fhir_comments": [
+        "   home communication details aren't known   "
+      ],
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(03) 5555 6473",
+      "use": "work"
+    }
+  ],
+  "gender": "male",
+  "_gender": {
+    "fhir_comments": [
+      "   use FHIR code system for male / female   "
+    ]
+  },
+  "birthDate": "1974-12-25",
+  "_birthDate": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+        "valueDateTime": "1974-12-25T14:35:45-05:00"
+      }
+    ]
+  },
+  "deceasedBoolean": false,
+  "address": [
+    {
+      "use": "home",
+      "type": "both",
+      "line": [
+        "534 Erewhon St"
+      ],
+      "city": "PleasantVille",
+      "district": "Rainbow",
+      "state": "Vic",
+      "postalCode": "3999",
+      "period": {
+        "start": "1974-12-25"
+      }
+    }
+  ],
+  "contact": [
+    {
+      "relationship": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/patient-contact-relationship",
+              "code": "partner"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "family": [
+          "du",
+          "MarchГ©"
+        ],
+        "_family": [
+          {
+            "extension": [
+              {
+                "fhir_comments": [
+                  "   the \"du\" part is a family name prefix (VV in iso 21090)   "
+                ],
+                "url": "http://hl7.org/fhir/StructureDefinition/iso21090-EN-qualifier",
+                "valueCode": "VV"
+              }
+            ]
+          },
+          null
+        ],
+        "given": [
+          "BГ©nГ©dicte"
+        ]
+      },
+      "telecom": [
+        {
+          "system": "phone",
+          "value": "+33 (237) 998327"
+        }
+      ],
+      "gender": "female",
+      "period": {
+        "start": "2012",
+        "_start": {
+          "fhir_comments": [
+            "   The contact relationship started in 2012   "
+          ]
+        }
+      }
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/1"
+  }
+}
+</code></p><ol><li>Execute the request.</li></ol><p>Let's check that the patient has been added:</p><ol><li>Open FHIRBase Console</li><li>Execute the query <code>select * from patient limit 5;</code></li></ol></div></div></div></div></body></html>

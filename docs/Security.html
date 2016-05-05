@@ -1,0 +1,149 @@
+<html><head><meta content="initial-scale=1, maximum-scale=1" name="viewport" /><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Exo+2:400,100,100italic,200,200italic,300,300italic,400italic,500,900italic,500italic,600,600italic,700,700italic,800,800italic,900" rel="stylesheet" type="text/css" /><style type="text/css">body {
+  font-family: 'Exo 2';
+}</style></head><body><div id="navigation"><style type="text/css">#navigation {
+  position: relative;
+  padding-top: 27.0px;
+  padding-left: 0px;
+  padding-bottom: 27.0px;
+  padding-right: 0px;
+  margin: 0;
+  color: #2B4961;
+  background-color: #B4E1DA;
+}
+
+#navigation .desctop {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+#navigation .navbar-header {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#navigation .icon-bar {
+  background-color: #474747;
+}
+
+#navigation .brand {
+  -webkit-box-flex: 1;
+     -webkit-flex-grow: 1;
+         -ms-flex-positive: 1;
+             flex-grow: 1;
+}
+
+#navigation .brand a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 27.0px;
+  line-height: 27.0px;
+}
+
+#navigation .brand a:hover {
+  text-decoration: none;
+}
+
+#navigation ul {
+  margin-bottom: 0;
+}
+
+#navigation ul li a {
+  color: #2B4961;
+  font-size: 18px;
+  line-height: 36px;
+  padding-top: 18px;
+  padding-left: 10px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+}
+
+#navigation .sign-in {
+  border-width: 2px;
+  padding-bottom: 5.3999999999999995px;
+  border-color: #2B4961;
+  border-style: solid;
+  margin-left: 18px;
+  padding-right: 22.0px;
+  border-radius: 20px;
+  color: #2B4961;
+  padding-left: 22.0px;
+  padding-top: 5.3999999999999995px;
+}</style><style type="text/css">@media (min-width: 479px) {
+
+  
+  
+  #navigation .mobile {
+    display: none;
+  }
+
+}</style><style type="text/css">@media (max-width: 480px) {
+
+  #navigation {
+    padding: 15px 0 0;
+  }
+  
+  #navigation .brand {
+    padding-left: 15px;
+  }
+  
+  #navigation ul {
+    margin-bottom: 10px;
+    display: none;
+  }
+  
+  #navigation #group:checked + ul {
+    display: block !important;
+  }
+  
+  #navigation .sign-in {
+    margin-left: 10px;
+  }
+  
+  #navigation .desctop {
+    display: none;
+  }
+  
+  #navigation .sign-in-li-item {
+    margin-top: 10px;
+  }
+  
+  #navigation li {
+    width: 100%;
+  }
+
+}</style><div class="container navigation desctop"><div class="brand"><a href="/index">AIDBOX</a></div><ul class="list-inline"><li><a href="/site/features.html">Features</a></li><li><a href="/site/docs/Overview.html">Documentation</a></li></ul><a class="sign-in" href="https://aidbox.io/ui">SIGN IN</a></div><div class="container navigation mobile"><div class="navbar-header"><div class="brand"><a href="/index">AIDBOX</a></div><label for="group"><div class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></label></div><input class="hidden" id="group" type="checkbox" /><ul class="list-inline"><li><a href="/site/features.html">Features</a></li><li><a href="/site/docs/Overview.html">Documentation</a></li><li class="sign-in-li-item"><a class="sign-in" href="https://aidbox.io/ui">SIGN IN</a></li></ul></div></div><div class="container"><div class="row"><nav class="col-sm-2" id="submenu"><style type="text/css">#submenu {
+  margin-top: 18px;
+}</style><ul class="nav"><li><a href="/site/docs/Overview.html">Overview</a></li><li><a href="/site/docs/Getting_Started.html">Getting Started</a></li><li><a href="/site/docs/box_lifecycle.html">Box Lifecycle</a></li><li><a href="/site/docs/aidbox_CLI.html">Aidbox CLI</a></li><li><a href="/site/docs/Tutorial.html">Sample Application</a></li><li><a href="/site/docs/Users_and_Groups.html">Users and Groups</a></li><li><a href="/site/docs/Security.html">Security</a></li><li><a href="/site/docs/Clients.html">Clients</a></li><li><a href="/site/docs/Developer_Tools.html">Developer Tools</a></li><li><a href="/site/docs/Queues.html">Queues</a></li><li><a href="/site/docs/Logs.html">Logs</a></li></ul></nav><div class="col-sm-10"><style type="text/css">code {
+  white-space: pre;
+  display: block;
+}</style><div class="markdown"><h2>Policies</h2><p>Policy is a JSON schema filtering REST requests. The policy type PostgreSQL function is available on the form but at the moment only one policy type is working - JSON Schema. The Policy field is used to enter a JSON schema. By default the Policy field is preset to the Basic template, you can select another template from available Basic, Advanced and Pro templates.</p><p>Let's consider the work of the Basic template. Here is the JSON schema of the template:</p><pre><code>{
+  "type": "object",
+  "properties": {
+    "method": {
+      "constant": "GET"
+    },
+    "uri": {
+      "type": "string",
+      "pattern": "/fhir.*"
+    }
+  }
+}
+</code></pre><p>In this schema two constraints are introduced: </p><ol><li>it is allowed to use only the GET method;</li><li>it is allowed to use only request URIs starting with "/fhir".</li></ol><p>Below the template selection element there is a tool for debugging. This tool consists of the following elements:</p><ul><li>HTTP-method selection (GET, POST, PUT, DELETE);</li><li>command line for entering address, starting with /fhir (implying the base server address going before the slash);</li><li>the Debug button;</li><li>the Request Body area.</li></ul><p>The Request Body area is used for displaying the request, the schema and the result with errors and warnings if any. For debugging the magic key __debug=true is used, so only request validation is performed, and the requests themselves are not executed. Let's perform the following tests to check our Basic template:</p><p>Positive:</p><ol><li>select the GET method;</li><li>enter the URI /fhir/Patient;</li><li>click the Debug button.</li></ol><p>Part result shows that there are no errors.</p><p>Negative: </p><ol><li>select the POST method;</li><li>enter the URI /users;</li><li>click the Debug button.</li></ol><p>Part result shows that there are two errors: POST method is used and only GET method is allowed; URI should start with /fhir, but it starts with /users.</p><h3>How to add a new policy rule</h3><ol><li>Open the Policies tab;</li><li>Click the plus button;</li><li>Fill in the fields Id, Title, Type, Policy;</li><li>Click the Create button.</li></ol><h3>Search by policy rule</h3><p>To search by policy rule, simply enter the search text in the filter field. Records in the list will be immediately filtered according to your entry.</p><h3>How to edit a policy rule</h3><ol><li>Select required policy rule record in the list;</li><li>Perform necessary editing;</li><li>Click the Save button.</li></ol><h3>How to delete a policy rule</h3><ol><li>Select required policy rule record in the list;</li><li>Click the Delete button;</li><li>The record will be deleted without confirmation.</li></ol></div></div></div></div></body></html>

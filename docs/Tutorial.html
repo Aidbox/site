@@ -1,0 +1,212 @@
+<html><head><meta content="initial-scale=1, maximum-scale=1" name="viewport" /><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Exo+2:400,100,100italic,200,200italic,300,300italic,400italic,500,900italic,500italic,600,600italic,700,700italic,800,800italic,900" rel="stylesheet" type="text/css" /><style type="text/css">body {
+  font-family: 'Exo 2';
+}</style></head><body><div id="navigation"><style type="text/css">#navigation {
+  position: relative;
+  padding-top: 27.0px;
+  padding-left: 0px;
+  padding-bottom: 27.0px;
+  padding-right: 0px;
+  margin: 0;
+  color: #2B4961;
+  background-color: #B4E1DA;
+}
+
+#navigation .desctop {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+}
+
+#navigation .navbar-header {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+#navigation .icon-bar {
+  background-color: #474747;
+}
+
+#navigation .brand {
+  -webkit-box-flex: 1;
+     -webkit-flex-grow: 1;
+         -ms-flex-positive: 1;
+             flex-grow: 1;
+}
+
+#navigation .brand a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 27.0px;
+  line-height: 27.0px;
+}
+
+#navigation .brand a:hover {
+  text-decoration: none;
+}
+
+#navigation ul {
+  margin-bottom: 0;
+}
+
+#navigation ul li a {
+  color: #2B4961;
+  font-size: 18px;
+  line-height: 36px;
+  padding-top: 18px;
+  padding-left: 10px;
+  padding-bottom: 18px;
+  padding-right: 10px;
+}
+
+#navigation .sign-in {
+  border-width: 2px;
+  padding-bottom: 5.3999999999999995px;
+  border-color: #2B4961;
+  border-style: solid;
+  margin-left: 18px;
+  padding-right: 22.0px;
+  border-radius: 20px;
+  color: #2B4961;
+  padding-left: 22.0px;
+  padding-top: 5.3999999999999995px;
+}</style><style type="text/css">@media (min-width: 479px) {
+
+  
+  
+  #navigation .mobile {
+    display: none;
+  }
+
+}</style><style type="text/css">@media (max-width: 480px) {
+
+  #navigation {
+    padding: 15px 0 0;
+  }
+  
+  #navigation .brand {
+    padding-left: 15px;
+  }
+  
+  #navigation ul {
+    margin-bottom: 10px;
+    display: none;
+  }
+  
+  #navigation #group:checked + ul {
+    display: block !important;
+  }
+  
+  #navigation .sign-in {
+    margin-left: 10px;
+  }
+  
+  #navigation .desctop {
+    display: none;
+  }
+  
+  #navigation .sign-in-li-item {
+    margin-top: 10px;
+  }
+  
+  #navigation li {
+    width: 100%;
+  }
+
+}</style><div class="container navigation desctop"><div class="brand"><a href="/index">AIDBOX</a></div><ul class="list-inline"><li><a href="/site/features.html">Features</a></li><li><a href="/site/docs/Overview.html">Documentation</a></li></ul><a class="sign-in" href="https://aidbox.io/ui">SIGN IN</a></div><div class="container navigation mobile"><div class="navbar-header"><div class="brand"><a href="/index">AIDBOX</a></div><label for="group"><div class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></div></label></div><input class="hidden" id="group" type="checkbox" /><ul class="list-inline"><li><a href="/site/features.html">Features</a></li><li><a href="/site/docs/Overview.html">Documentation</a></li><li class="sign-in-li-item"><a class="sign-in" href="https://aidbox.io/ui">SIGN IN</a></li></ul></div></div><div class="container"><div class="row"><nav class="col-sm-2" id="submenu"><style type="text/css">#submenu {
+  margin-top: 18px;
+}</style><ul class="nav"><li><a href="/site/docs/Overview.html">Overview</a></li><li><a href="/site/docs/Getting_Started.html">Getting Started</a></li><li><a href="/site/docs/box_lifecycle.html">Box Lifecycle</a></li><li><a href="/site/docs/aidbox_CLI.html">Aidbox CLI</a></li><li><a href="/site/docs/Tutorial.html">Sample Application</a></li><li><a href="/site/docs/Users_and_Groups.html">Users and Groups</a></li><li><a href="/site/docs/Security.html">Security</a></li><li><a href="/site/docs/Clients.html">Clients</a></li><li><a href="/site/docs/Developer_Tools.html">Developer Tools</a></li><li><a href="/site/docs/Queues.html">Queues</a></li><li><a href="/site/docs/Logs.html">Logs</a></li></ul></nav><div class="col-sm-10"><style type="text/css">code {
+  white-space: pre;
+  display: block;
+}</style><div class="markdown"><h2>Sample app tutorial</h2><p>We are offering this tutorial for learning core concepts of application development with Aidbox. We will develop a sample <a href="https://angularjs.org">AngularJS</a>, Web application which consists of a form for onboarding patients (CRUD) with a search by name function.</p><p><img alt="clojure.lang.LazySeq@7f423a4d" src="/site/imgs/app.png" title="" /></p><p>After completing this tutorial you should learn:</p><ul><li>how to create Aidbox Web applications with NodeJS and AngularJS</li><li>how to use aidbox-cli</li><li>how to use REST API and query the FHIR server</li><li><strong>What else?</strong></li></ul><h3>Get started</h3><p>To start your development you have to install NodeJS. All the instructions how to install NODE.JS you can find at <a href="https://nodejs.org/download/">nodejs.org/download</a> . The next step of preparing your development environment is installation of aidbox-cli and box setup. All the information you need for working with aidbox-cli you can find on <a href="https://www.npmjs.com/package/aidbox-cli">its official page</a>.</p><pre><code>$ npm install -g aidbox-cli
+$ aidbox v
+</code></pre><h3>Sample app structure</h3><p>Sample app consists of three main files:</p><pre><code>├── package.json
+└── dist
+    ├── app.js
+    └── index.html
+</code></pre><ul><li><code>package.json</code> - manifest file of your app. It contains the name of your project, its version, dependencies, commands to run etc You can read more about package.json file on <a href="https://docs.npmjs.com/files/package.json">this page</a> of npm documentation.</li><li><code>index.html</code> - the first HTML file of your application.</li><li><code>app.js</code> - main part of your app. It contains all business logic, queries to the FHIR server via REST API, authorisation etc</li></ul><p>Let’s look at each file more closely</p><p><strong>Package.json</strong></p><p><code>package.json</code> contains only minimally required settings, one dependency <code>http-server</code> and one command <code>start</code> for starting a local Web server on the port 5000.</p><p><code>package.json</code> <code>js
+{
+  "name": "Aidbox-sample-spa",
+  "version": "0.0.0",
+  "dependencies": { },
+  "devDependencies": {
+    "http-server": "latest"
+  },
+  "engines": {
+    "node": "&gt;=0.12.0"
+  },
+  "scripts": {
+    "start": "`npm bin`/http-server dist -p 5000"
+  }
+}
+</code></p><p><strong>index.html</strong></p><p>To simplify the app let’s load all the styles and scripts from the CDN. Please pay attention that <code>angular-aidbox.js</code> - is a service for the AngularJS framework providing REST API and authorisation implementation. You can read more details about this project on the <a href="https://github.com/Aidbox/aidboxjs">aidboxjs</a> official page.</p><p><code>index.html</code> <code>html
+&lt;!doctype html&gt;
+&lt;html ng-app="app"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;My sample app&lt;/title&gt;
+    &lt;link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" /&gt;
+    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular.min.js" &gt;&lt;/script&gt;
+    &lt;script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-cookies.min.js" &gt;&lt;/script&gt;
+   &lt;script src="//aidbox.io/angular-aidbox.js" &gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;nav class="navbar navbar-default navbar-static-top" role="navigation"&gt;
+      &lt;div class="container"&gt;
+        &lt;div id="navbar" class="navbar"&gt;
+          &lt;ul class="nav navbar-nav navbar-right"&gt;
+            &lt;li ng-if="user" class="login"&gt;
+              &lt;a href="#"&gt;{{user.email}}&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li ng-if="!user"&gt;
+              &lt;a ng-click="auth.signin()" href="#"&gt;Sign in&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li ng-if="user"&gt;
+              &lt;a ng-click="auth.signout()" href="#"&gt;Sign out&lt;/a&gt;
+            &lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;div class="container"&gt;
+      &lt;h3&gt;Sample app&lt;/h3&gt;
+      &lt;div ng-show="user" class="ng-hide"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></p><p><strong>app.js</strong></p><p><code>app.js</code> <code>js
+(function() {
+    var BOX_URL = 'https://myapp.aidbox.io';
+    var app = angular.module('app', ['ngCookies', 'ngAidbox']);
+    app.run(function($rootScope, $aidbox) {
+        $aidbox.init({
+            box: BOX_URL,
+            onSignIn: function(user) {
+                $rootScope.user = user;
+            },
+            onSignOut: function() {
+                $rootScope.user = null;
+            }
+        });
+    });
+})();
+</code></p><p>Run</p><pre><code>npm run start
+</code></pre><h3>Create patient form</h3><h3>Patients list</h3><h3>Patients CRUD</h3><h3>Deploy</h3><pre><code>aibox deploy
+</code></pre></div></div></div></div></body></html>
